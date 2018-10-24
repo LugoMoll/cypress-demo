@@ -1,48 +1,14 @@
 import React, { Component } from 'react';
+import Item from './Item';
 import './App.css';
-
-class Item extends Component {
-  state = {}
-  edit = (event) => {
-    event.preventDefault();
-    this.props.edit(this.props.todo, this.state.input);
-    this.setState({editing: false})
-  }
-  render() {
-    const {todo, remove} = this.props;
-    const {input} = this.state;
-    if (this.state.editing) {
-      return (
-        <li>
-          <form onSubmit={this.edit}>
-            <input
-              value={input}
-              onChange={e => this.setState({input: e.target.value})}
-              style={{ marginRight: '20px' }}
-            />
-            <button>Save</button>
-          </form>
-        </li>
-      )
-    }
-    return (
-      <li>
-        <span style={{ marginRight: '20px' }}>{todo}</span>
-        <button className="delete" onClick={() => remove(todo)}>🗑</button>
-        <button className="edit" onClick={() => this.setState({editing: true, input: todo})}>✏️</button>
-      </li>
-    )
-  }
-}
 
 class App extends Component {
   state = { todos: [] }
   componentDidMount() {
-    console.log('mount')
     const storedTodos = window.localStorage.getItem('todos');
     this.setState({ todos: storedTodos ? storedTodos.split(',') : [] })
   }
-  addTodo = (event) => {
+  add = (event) => {
     const { todos, input } = this.state;
     event.preventDefault();
     const newTodos = [...todos, input]
@@ -65,8 +31,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-logo">SYSON<br/>CONF<br/>2018</h1>
-          <form onSubmit={this.addTodo}>
+          <h1 data-cy="header" className="App-logo">SYSON<br/>CONF<br/>2018</h1>
+          <form data-cy="add-form" onSubmit={this.add}>
             <input
               value={this.state.input}
               style={{ marginRight: '20px' }}
