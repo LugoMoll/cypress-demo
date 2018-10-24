@@ -42,4 +42,9 @@
 
 .App-add {
   padding-bottom: 30px;
+  display: flex;
+}
+
+.App-add input {
+  margin-right: 20px;
 }

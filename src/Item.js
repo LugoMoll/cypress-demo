@@ -26,7 +26,7 @@ class Item extends Component {
     }
     return (
       <li data-cy="item">
-        <span style={{ marginRight: '20px' }}>{todo}</span>
+        <span>{todo}</span>
         <button data-cy="edit" className="edit" onClick={() => this.setState({editing: true, input: todo})}>✏️</button>
         <button data-cy="delete" className="delete" onClick={() => remove(todo)}>🗑</button>
       </li>
