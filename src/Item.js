@@ -4,13 +4,17 @@ class Item extends Component {
   state = {}
   edit = (event) => {
     event.preventDefault();
-    this.props.edit(this.props.todo, this.state.input);
+    const {todo, edit} = this.props;
+    const {input} = this.state;
+
+    edit(todo,input);
     this.setState({editing: false})
   }
   render() {
     const {todo, remove} = this.props;
-    const {input} = this.state;
-    if (this.state.editing) {
+    const {input, editing} = this.state;
+
+    if (editing) {
       return (
         <li>
           <form data-cy="edit-form" onSubmit={this.edit}>
@@ -24,6 +28,7 @@ class Item extends Component {
         </li>
       )
     }
+    
     return (
       <li data-cy="item">
         <span>{todo}</span>

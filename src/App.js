@@ -4,7 +4,7 @@ import './App.css';
 
 class App extends Component {
   state = { todos: [] }
-  
+
   componentDidMount() {
     const storedTodos = window.localStorage.getItem('todos');
     this.setState({ todos: storedTodos ? storedTodos.split(',') : [] })
@@ -33,19 +33,20 @@ class App extends Component {
   }
 
   render() {
+    const { input, todos } = this.state;
     return (
       <div className="App">
         <header className="App-header">
           <h1 data-cy="header" className="App-logo">✨SYSON✨<br/>✨CONF✨</h1>
           <form data-cy="add-form" className="App-add" onSubmit={this.add}>
             <input
-              value={this.state.input}
+              value={input}
               onChange={e => this.setState({ input: e.target.value })}
             />
             <button className="save">Add</button>
           </form>
           <ul>
-            {this.state.todos.map((todo, i) => (
+            {todos.map((todo, i) => (
               <Item key={i} todo={todo} edit={this.edit} remove={this.delete} />
             ))}
           </ul>
