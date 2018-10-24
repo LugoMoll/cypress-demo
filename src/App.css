@@ -3,10 +3,11 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
   position: absolute;
   top: 20px;
+  animation: App-logo-pulse infinite 5s ease-in-out;
 }
+
 
 .App-header {
   background-color: #282c34;
@@ -23,12 +24,13 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes App-logo-pulse {
+  0% {
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: scale(1.2)
+  }
+  100% {
   }
 }
 
@@ -38,24 +40,6 @@
   cursor: pointer;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-}
-
-li {
-  display: flex;
-}
-
-li span {
-  flex-grow: 1;
-}
-
-input {
-  font-size: 18px;
-}
-
-button {
-  font-size: 16px;
+.App-add {
+  padding-bottom: 30px;
 }

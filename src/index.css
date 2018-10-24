@@ -8,7 +8,37 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+button {
+  background: white;
+  border: none;
+  padding: 5px 20px;
+  font-size: 16px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+li {
+  display: flex;
+}
+
+li span {
+  flex-grow: 1;
+}
+
+input {
+  font-size: 18px;
+  padding: 5px;
 }

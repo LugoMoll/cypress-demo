@@ -31,14 +31,14 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 data-cy="header" className="App-logo">SYSON<br/>CONF<br/>2018</h1>
-          <form data-cy="add-form" onSubmit={this.add}>
+          <h1 data-cy="header" className="App-logo">✨SYSON✨<br/>✨CONF✨</h1>
+          <form data-cy="add-form" className="App-add" onSubmit={this.add}>
             <input
               value={this.state.input}
               style={{ marginRight: '20px' }}
               onChange={e => this.setState({ input: e.target.value })}
             />
-            <button className="save">Save</button>
+            <button className="save">Add</button>
           </form>
           <ul>
             {this.state.todos.map((todo, i) => (
