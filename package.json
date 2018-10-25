@@ -11,7 +11,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress open"
+    "cypress:run": "cypress run"
   },
   "eslintConfig": {
     "extends": "react-app"
